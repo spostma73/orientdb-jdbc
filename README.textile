@@ -1,7 +1,12 @@
 *OrientDB  JDBC Driver*
 
 OrientDB (http://code.google.com/p/orient/) is a NoSql DBMS that support a subset of SQL ad query languge.
-This project is an effort to develop a JDBC driver for OrientDB
+This project is an effort to develop a JDBC driver for OrientDB.
+
+This fork was created in attempt to translate H2 SQL grammar into OrientDB compliant SQL grammar in order 
+to support Hibernate components along with graph enabled components together in one DB. 
+(Also to avoid a separate RDBMS which could get out of sync with OrientDB when backed up at different moments, 
+resulting in data loss) 
 
 *Include in your projects*
 

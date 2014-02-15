@@ -148,6 +148,7 @@ public class H2
                                 trim(section);
                                 section.append(SPACE_CHAR).append(max);
                                 typeLen = false;
+                                max=0;
                                 section.append(SPACE_CHAR);
                                 continue;
                             } else if (type)

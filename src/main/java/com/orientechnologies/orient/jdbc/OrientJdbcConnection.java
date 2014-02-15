@@ -53,6 +53,7 @@ public class OrientJdbcConnection implements Connection {
   private OGraphDatabase   database;
   private boolean          readOnly = false;
   private boolean          autoCommit;
+  private final boolean    translateH2SQL;
 
   public OrientJdbcConnection(String iUrl, Properties iInfo) {
     dbUrl = iUrl.replace("jdbc:orient:", "");
@@ -61,6 +62,7 @@ public class OrientJdbcConnection implements Connection {
 
     String username = iInfo.getProperty("user", "admin");
     String password = iInfo.getProperty("password", "admin");
+    translateH2SQL = Boolean.parseBoolean(iInfo.getProperty("translateH2SQL", "false"));
 
     database = OGraphDatabasePool.global().acquire(dbUrl, username, password);
 
@@ -303,5 +305,9 @@ public class OrientJdbcConnection implements Connection {
   }
 
   public void setSchema(String arg0) throws SQLException {
+  }
+
+  public boolean isTranslateH2SQL() {
+    return translateH2SQL;
   }
 }
